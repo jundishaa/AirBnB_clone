@@ -3,7 +3,6 @@
 
 import uuid
 from datetime import datetime
-from models import storage
 
 
 class BaseModel:
@@ -29,6 +28,7 @@ class BaseModel:
 
     def save(self):
         """Update the updated_at attribute with the current datetime and save to storage."""
+        from models import storage
         self.updated_at = datetime.now()
         storage.save()
 
