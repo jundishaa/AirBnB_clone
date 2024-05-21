@@ -5,7 +5,6 @@ This module contains the BaseModel class
 
 import uuid
 from datetime import datetime
-from models import storage
 
 class BaseModel:
     """
@@ -16,6 +15,7 @@ class BaseModel:
         """
         Initialize the BaseModel
         """
+        from models import storage
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
@@ -43,6 +43,7 @@ class BaseModel:
         """
         Update the updated_at attribute with the current datetime
         """
+        from models import storage
         self.updated_at = datetime.now()
         storage.save()
 
