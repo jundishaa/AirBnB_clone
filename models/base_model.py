@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Base model module for AirBnB clone"""
+
 import datetime
 import uuid
 
