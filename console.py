@@ -6,25 +6,28 @@ This module contains the entry point of the command interpreter.
 import cmd
 from models import storage
 from models.base_model import BaseModel
-
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """
     HBNBCommand class
     """
     prompt = '(hbnb) '
-    classes = ["BaseModel"]
+    classes = ["BaseModel", "User"]
 
     def do_create(self, arg):
         """
-        Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
+        Creates a new instance of BaseModel or User, saves it (to the JSON file) and prints the id.
         """
         if len(arg) == 0:
             print("** class name missing **")
         elif arg not in self.classes:
             print("** class doesn't exist **")
         else:
-            new_instance = BaseModel()
+            if arg == "BaseModel":
+                new_instance = BaseModel()
+            elif arg == "User":
+                new_instance = User()
             new_instance.save()
             print(new_instance.id)
 
