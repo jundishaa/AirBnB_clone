@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Base model module for AirBnB clone"""
-
+from models import storage
 import datetime
 import uuid
 
@@ -14,6 +13,10 @@ class BaseModel:
         If kwargs is not empty, set attributes based on the key-value pairs.
         If 'created_at' and 'updated_at' are provided as strings, convert them to datetime objects.
         Otherwise, generate a unique ID and set 'created_at' and 'updated_at' to the current datetime.
+
+        Args:
+            *args: Variable length argument list (not used).
+            **kwargs: Keyword arguments for attribute values.
         """
         if kwargs:
             for key, value in kwargs.items():
@@ -27,15 +30,20 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
+            storage.new(self)
 
     def save(self):
-        """Update the 'updated_at' attribute to the current datetime."""
+        """Update the 'updated_at' attribute to the current datetime and call save on storage."""
         self.updated_at = datetime.datetime.now()
+        storage.save()
 
     def to_dict(self):
         """Convert the instance to a dictionary representation.
 
         Include the class name, and convert 'created_at' and 'updated_at' to ISO format strings.
+
+        Returns:
+            dict: Dictionary representation of the instance.
         """
         obj_dict = self.__dict__.copy()
         obj_dict["__class__"] = self.__class__.__name__
