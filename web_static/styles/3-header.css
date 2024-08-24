@@ -1,0 +1,21 @@
+/* Header styles */
+header {
+    background-color: #ffffff;
+    color: #ffffff;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    margin-left: 20px;
+    height: 100%;
+    width: 50px; /* Adjust width according to the logo size */
+    background-image: url('../images/logo.png'); /* Replace with actual logo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+

@@ -1,0 +1,31 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #FFFFFF;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+header, footer {
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    border-bottom: 1px solid #CCCCCC; /* Footer has border-top instead */
+    height: 70px;
+    width: 100%;
+    text-align: center;
+    line-height: 70px;
+}
+
+footer {
+    border-top: 1px solid #CCCCCC;
+    height: 60px;
+    line-height: 60px;
+}
+
